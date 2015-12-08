@@ -17,10 +17,8 @@ public class TowerMain extends JPanel implements Runnable {
 	}
 
 	public void init() {
-		this.addKeyListener(new KeyInput());
-		this.requestFocusInWindow();
 		Window.createWindow();
-
+		Window.frame.addKeyListener(new KeyInput());
 
 	}
 	
