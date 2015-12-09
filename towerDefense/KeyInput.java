@@ -9,8 +9,7 @@ public class KeyInput implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		if(key == KeyEvent.VK_ESCAPE) {
-			System.out.println("test");
-			System.exit(1);
+			TowerMain.state = TowerMain.PAUSED;
 			
 		}
 		
