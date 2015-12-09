@@ -19,4 +19,8 @@ public abstract class TrackSection {
 	public abstract void setEndAngle(int angle);
 	public abstract void setSpeed(double speed);
 	//extensions of this are in the tracks package
+	
+	public abstract int getX();
+	public abstract int getY();
+	public abstract void setCoords(int x, int y);
 }

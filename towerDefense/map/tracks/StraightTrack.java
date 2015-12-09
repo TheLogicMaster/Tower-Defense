@@ -7,26 +7,35 @@ public class StraightTrack extends TrackSection{
 	/**
 	 * @author PolymerBoy
 	 * 
-	 * a section of a track, be it straight or curved. Any class using it figures out the curves itself.
+	 * a section of a track, specifically a straight one.
 	 * 
 	 * height and width: surrounding box. simple. 
 	 * 
 	 * length: length of track for the enemies.
+	 * 
+	 * speed: speed of the enemies going through.
 	 * */
 	
-	private int height, width, length, startAngle, endAngle;//angles in DEGREES, distances in PIXELS, speed in PIXELS/TICK
+	private int height, width, length, startAngle, x, y;//angles in DEGREES, distances in PIXELS, speed in PIXELS/TICK
 	private double speed;
 	private boolean isStart, isEnd;
 	
-	public StraightTrack(int height, int width, int length, int startAngle, int endAngle, boolean isStart, boolean isEnd, int speed){
+	private StraightTrack(int height, int width, int length, int startAngle, boolean isStart, boolean isEnd, int speed){
 		//yay long constructors :D
 		this.height = height;
 		this.width = width;
 		this.length = length;
 		this.startAngle = startAngle;
-		this.endAngle = endAngle;
 		this.isStart = isStart;
 		this.isEnd = isEnd;
+	}
+	
+	public StraightTrack(int length, int startAngle, boolean isStart, boolean isEnd, int speed){
+		this((int) Math.cos(startAngle * Math.PI / 180D) * length,(int) Math.sin(startAngle * Math.PI / 180D) * length, length, startAngle, false, false, speed);
+	}
+	
+	public StraightTrack(int length, int startAngle, int speed){
+		this((int)(Math.sin(startAngle * Math.PI/180D) * length), (int) (Math.cos(startAngle * Math.PI/180D) * length), length, startAngle, false, false, speed);
 	}
 	
 	@Override
@@ -68,7 +77,7 @@ public class StraightTrack extends TrackSection{
 	@Override
 	public int getEndAngle() {
 		// TODO Auto-generated method stub
-		return endAngle;
+		return startAngle + ((startAngle < 180) ? 180 : -180);
 	}
 
 	@Override
@@ -113,10 +122,11 @@ public class StraightTrack extends TrackSection{
 		this.startAngle = angle;
 	}
 
+	/**does exactly the same as setStartAngle, but the track ends up pointing the other way.*/
 	@Override
 	public void setEndAngle(int angle) {
 		// TODO Auto-generated method stub
-		this.endAngle = angle;
+		
 	}
 
 	@Override
@@ -124,5 +134,20 @@ public class StraightTrack extends TrackSection{
 		// TODO Auto-generated method stub
 		this.speed = speed;
 	}
-
+	
+	@Override
+	public int getY() {
+		return y;
+	}
+	
+	@Override
+	public void setCoords(int x, int y){
+		this.x = x;
+		this.y = y;
+	}
+	
+	@Override
+	public int getX() {
+		return x;
+	}
 }
