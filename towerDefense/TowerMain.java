@@ -92,6 +92,11 @@ public class TowerMain extends JPanel implements Runnable {
 				
 			}
 			
+			if(mousex >(Window.width - resume.getWidth()) / 2 && mousex < (Window.width - resume.getWidth()) / 2 + resume.getWidth() && mousey > (resume.getHeight() * 2 + 50) / 2 && mousey < (Window.height - (resume.getHeight() * 2 + 50)) / 2 + resume.getHeight()) {
+				g2d.drawImage(resumeh, (Window.width - resumeh.getWidth()) / 2, (Window.height - (resumeh.getHeight() * 2 + 50)) / 2, null);
+				
+			}
+			
 		}
 		
 	}
@@ -102,6 +107,11 @@ public class TowerMain extends JPanel implements Runnable {
 		
 		if(state == PAUSED && mousex >(Window.width - resume.getWidth()) / 2 && mousex < (Window.width - resume.getWidth()) / 2 + resume.getWidth() && mousey > (Window.height - (resume.getHeight() * 2 + 50)) / 2 + resume.getHeight() + 50 && mousey < (Window.height - (resume.getHeight() * 2 + 50)) / 2 + resume.getHeight() + 50 + resume.getHeight() && mousedown) {
 			System.exit(1);
+			
+		}
+		
+		if(state == PAUSED && mousex >(Window.width - resume.getWidth()) / 2 && mousex < (Window.width - resume.getWidth()) / 2 + resume.getWidth() && mousey > (resume.getHeight() * 2 + 50) / 2 && mousey < (Window.height - (resume.getHeight() * 2 + 50)) / 2 + resume.getHeight() && mousedown) {
+			state = GAME;
 			
 		}
 		
