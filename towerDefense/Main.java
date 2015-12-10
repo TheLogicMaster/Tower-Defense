@@ -7,6 +7,12 @@ public class Main {
 	public static double res = 10;
 
 	public static void main(String[] args) {
+	//////////////////////////////////////////////////////
+	/// WHY THE HECK ARE THERE 2 MAINS!!!!???? ///
+	/////////////////////////////////////////////////////
+		
+		
+		
 		px[0] = 0;
 		py[0] = 0;
 		px[1] = 50;
