@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.MouseInfo;
-import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -25,6 +24,9 @@ public class TowerMain extends JPanel implements Runnable {
 	public static boolean mousedown = false;
 	
 	public static BufferedImage resume;
+	public static BufferedImage resumeh;
+	public static BufferedImage exit;
+	public static BufferedImage exith;
 	
 	public static void main(String[] args) throws IOException {
 		start();
@@ -41,7 +43,11 @@ public class TowerMain extends JPanel implements Runnable {
 	
 	public static synchronized void start() throws IOException {
 		running = true;
+		
 		resume = ImageIO.read(new File("res/resume.png"));
+		exit = ImageIO.read(new File("res/exit.png"));
+		resumeh = ImageIO.read(new File("res/resumeh.png"));
+		exith = ImageIO.read(new File("res/exith.png"));
 		
 		Thread thread = new Thread(new TowerMain());
 		thread.start();
@@ -79,7 +85,12 @@ public class TowerMain extends JPanel implements Runnable {
 		
 		if(state == PAUSED) 	{
 			g2d.drawImage(resume, (Window.width - resume.getWidth()) / 2, (Window.height - (resume.getHeight() * 2 + 50)) / 2, null);
-			g2d.drawImage(resume, (Window.width - resume.getWidth()) / 2, (Window.height - (resume.getHeight() * 2 + 50)) / 2 + resume.getHeight() + 50, null);
+			g2d.drawImage(exit, (Window.width - exit.getWidth()) / 2, (Window.height - (exit.getHeight() * 2 + 50)) / 2 + exit.getHeight() + 50, null);
+			
+			if(mousex >(Window.width - resume.getWidth()) / 2 && mousex < (Window.width - resume.getWidth()) / 2 + resume.getWidth() && mousey > (Window.height - (resume.getHeight() * 2 + 50)) / 2 + resume.getHeight() + 50 && mousey < (Window.height - (resume.getHeight() * 2 + 50)) / 2 + resume.getHeight() + 50 + resume.getHeight()) {
+				g2d.drawImage(exith, (Window.width - exith.getWidth()) / 2, (Window.height - (exith.getHeight() * 2 + 50)) / 2 + exith.getHeight() + 50, null);
+				
+			}
 			
 		}
 		
