@@ -1,8 +1,8 @@
 package towerDefense.map.tracks;
 
 public class TrackOneInOut {
-	public static double px[] = new double[999999999];
-	public static double py[] = new double[999999999];
+	public static double px[] = new double[999];
+	public static double py[] = new double[999];
 	public static double rad;
 
 	public static void trackGen() {
