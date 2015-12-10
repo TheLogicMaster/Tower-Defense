@@ -12,6 +12,12 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class TowerMain extends JPanel implements Runnable {
+	
+	public static double px[] = new double[999];
+	public static double py[] = new double[999];
+	public static double curves = 4;
+	public static double res = 10;
+	
 	private static final long serialVersionUID = 8291911686213150373L;
 	public static boolean running = false;
 	public static int MENU = 0;
