@@ -136,7 +136,6 @@ public class TowerMain extends JPanel implements Runnable {
 						+ resume.getHeight()
 				&& mousedown) {
 			System.exit(1);
-
 		}
 
 		if (state == PAUSED && mousex > (Window.width - resume.getWidth()) / 2

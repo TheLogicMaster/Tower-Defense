@@ -74,10 +74,33 @@ public class ActiveMap {
 		enemyCoordsByEnemy.put(e, new int[]{x2, y2});
 	}
 	
+	/**random enemy, based on the level.*/
 	public EnemyBase getEnemy(){
-		int maxRank = (int) (Math.sqrt(level * 2) - (double) level / 10) + 1;
+		int level = 0;
+		switch(difficulty){//ranks come faster on higher difficulties
+		//feel free to change these formulas. just update the values listed.
+			case EASY:
+				level = this.level;//1,2,3,4,5
+				break;
+			case NORMAL:
+				level = this.level * 2 - 1;//1,3,5,7,9
+				break;
+			case HARD:
+				level = this.level * 3 - 2;//1,4,7,10,13
+				break;
+			case EXPERT:
+				level = this.level * 4 - 3;//1,5,9,13,17
+				break;
+			default:
+				level = this.level;
+				break;
+		}
+		
+		int maxRank = (int) ((Math.sqrt(level * 2) - (double) ((level + 2) / 2D)) + 1.5 + (double) level / 3D);
+		//maximum rank of enemy (exclusive), starts at 1.
 		Random r = new Random();
 		int rank = r.nextInt(maxRank);
+		while(level > 35 && rank < 6);
 		EnemyBase e = null;
 		switch(rank){
 			case 0:

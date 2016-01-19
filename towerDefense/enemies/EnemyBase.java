@@ -7,6 +7,8 @@ public abstract class EnemyBase {
 	private int health, speed, shield;//shield blocks damage from each hit
 	
 	public abstract void onAttacked(TowerBase t);
+	
+	public abstract EnemyBase[] getEnemiesSpawned();
 
 	public int getHealth(){
 		return health;
