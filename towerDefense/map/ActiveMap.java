@@ -1,5 +1,6 @@
 package towerDefense.map;
 
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -14,6 +15,8 @@ public class ActiveMap {
 	
 	private ArrayList<TowerBase> towers;
 	private HashMap<TowerBase, int[]> towerCoordsByTower;
+	//this means we can get coordinates by calling towerCoordsByTower.get(TowerBase)
+	//add them with towerCoordsByTower.put(TowerBase, int[])
 	private ArrayList<EnemyBase> enemies;
 	private HashMap<EnemyBase, int[]> enemyCoordsByEnemy;
 	private Difficulty difficulty;
@@ -124,7 +127,7 @@ public class ActiveMap {
 		towerCoordsByTower.put(t, new int[]{coords[0], coords[1]});
 	}
 	
-	public Map getMap(){
+	public Map getMap(){//background is map.getImage();
 		return map;
 	}
 	
@@ -138,5 +141,22 @@ public class ActiveMap {
 	
 	public int getLevel(){
 		return level;
+	}
+	
+	public void tick(){
+		for(EnemyBase e : enemies){
+			//move e
+		}
+		
+		for(TowerBase t : towers){
+			t.dropCooldown();
+			for(EnemyBase e : enemies){
+				boolean attacked = false;
+				//if e is within t's range, t looks at e
+				//if cooldown = 0, t attacks e, attacked = true
+				if(attacked)
+					break;
+			}
+		}
 	}
 }

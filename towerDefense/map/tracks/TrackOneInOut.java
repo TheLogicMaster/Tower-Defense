@@ -2,6 +2,7 @@ package towerDefense.map.tracks;
 
 public class TrackOneInOut {
 	public static double px[] = new double[999];
+	//use ArrayList<Double>, size is exactly how many are needed
 	public static double py[] = new double[999];
 	public static double rad;
 

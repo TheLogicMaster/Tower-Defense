@@ -11,9 +11,10 @@ public class Window {
 	public static int width, height;
 	
 	public static void createWindow() {
-		Window.width = Toolkit.getDefaultToolkit().getScreenSize().width;
-		Window.height = Toolkit.getDefaultToolkit().getScreenSize().height;
-
+		width = Toolkit.getDefaultToolkit().getScreenSize().width;
+		height = Toolkit.getDefaultToolkit().getScreenSize().height;
+		//since method is static, accessing fields and methods is static by default.
+		
 		frame.setUndecorated(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -21,6 +22,7 @@ public class Window {
 		frame.add(towermain);
 		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		gd.setFullScreenWindow(frame);
+		frame.setResizable(false);
 		frame.setVisible(true);
 		
 	}

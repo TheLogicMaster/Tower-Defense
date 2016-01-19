@@ -16,8 +16,11 @@ public class StraightTrack extends TrackSection{
 	 * speed: speed of the enemies going through.
 	 * */
 	
-	private int height, width, length, startAngle, x, y;//angles in DEGREES, distances in PIXELS, speed in PIXELS/TICK
+	private int height, width, length, startAngle, x, y;
+	//angles in DEGREES, distances in PIXELS, speed in PIXELS/TICK
+	//angle represents the angle to the last line it is at, counter-clockwise from it.
 	private double speed;
+	//NEVER make both of these true.
 	private boolean isStart, isEnd;
 	
 	private StraightTrack(int height, int width, int length, int startAngle, boolean isStart, boolean isEnd, int speed){

@@ -37,7 +37,7 @@ public class TowerMain extends JPanel implements Runnable {
 
 	public static void main(String[] args) throws IOException {
 		start();
-
+		
 	}
 
 	public void init() {
@@ -128,6 +128,8 @@ public class TowerMain extends JPanel implements Runnable {
 	public void tick() {
 		mousex = MouseInfo.getPointerInfo().getLocation().getX();
 		mousey = MouseInfo.getPointerInfo().getLocation().getY();
+		
+		//we need to tick on ActiveMap, as well.
 
 		if (state == PAUSED && mousex > (Window.width - resume.getWidth()) / 2
 				&& mousex < (Window.width - resume.getWidth()) / 2 + resume.getWidth()

@@ -8,6 +8,14 @@ public abstract class TowerBase {
 	private int cooldown;
 	private boolean isAoE;
 	
+	public TowerBase(int range, int maxTargets, int attackDelay, int damage, boolean isAoE){
+		this.range = range;
+		this.maxTargets = maxTargets;
+		this.attackDelay = attackDelay;
+		this.damage = damage;
+		this.isAoE = isAoE;
+	}
+	
 	public void attack(EnemyBase e){
 		cooldown = getAttackDelay();
 		e.onAttacked(this);
@@ -57,4 +65,8 @@ public abstract class TowerBase {
 		this.maxTargets = maxTargets;
 	}
 	
+	public void dropCooldown(){
+		if(cooldown > 0)
+			cooldown--;
+	}
 }
